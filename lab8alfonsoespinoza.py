@@ -12,16 +12,16 @@ client = OpenAI(api_key=api_key)
 df = pd.read_csv('anime.csv')
 
 # Usar solo las primeras 100 filas
-df_subset = df.head(100)
+df_subset = df.head(150)
 
 # Convertir a texto
 df_string = df_subset.to_string()
 
 # Título
-st.title("🎮 Asistente de Videojuegos")
+st.title("Recomendador de Anime⛩️")
 
 # Campo de texto para la pregunta
-user_input = st.text_input("Escribe tu pregunta sobre los videojuegos:")
+user_input = st.text_input("Escribe tu pregunta sobre anime:")
 
 # Cuando el usuario escribe una pregunta
 if user_input:
@@ -31,11 +31,11 @@ if user_input:
             {
                 "role": "system",
                 "content": (
-                    "Eres un asistente experto en videojuegos. "
-                    "Usa ÚNICAMENTE la información del siguiente dataset para responder preguntas. "
+                    "Eres un asistente experto en anime y recomendaciones de anime. "
+                    "Usa ÚNICAMENTE la información del siguiente dataset para contestar las preguntas. "
                     "Si la pregunta no está relacionada con los datos, responde con: "
-                    "'Lo siento, esa pregunta no está relacionada con los datos disponibles.'\n\n"
-                    "Aquí están los primeros 100 registros del dataset:\n" + df_string
+                    "'Lo siento, no estoy entrenado para contestar preguntas en este ámbito.'\n\n"
+                    "Aquí están los primeros 150 registros del dataset:\n" + df_string
                 )
             },
             {"role": "user", "content": user_input}
