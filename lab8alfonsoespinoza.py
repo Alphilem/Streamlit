@@ -11,7 +11,7 @@ client = OpenAI(api_key=api_key)
 # Importar dataset
 df = pd.read_csv('anime.csv')
 
-# Usar solo las primeras 100 filas
+# Usar solo las primeras 150 filas
 df_subset = df.head(150)
 
 # Convertir a texto
